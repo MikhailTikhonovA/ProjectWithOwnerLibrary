@@ -2,6 +2,7 @@ package common;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -29,10 +30,10 @@ public class WebDriverProvider implements Supplier<WebDriver> {
             switch (webDriverConfig.browserName()) {
                 case CHROME:
                     WebDriverManager.chromedriver().setup();
-                    return new ChromeDriver();
+                    return new ChromeDriver((ChromeOptions) getBrowserOptions("CHROME"));
                 case FIREFOX:
                     WebDriverManager.firefoxdriver().setup();
-                    return new FirefoxDriver();
+                    return new FirefoxDriver((FirefoxOptions) getBrowserOptions("FIREFOX"));
             }
         }
         throw new RuntimeException("Incorrect browser name");
