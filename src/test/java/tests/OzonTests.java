@@ -20,8 +20,7 @@ public class OzonTests {
     public void testMainPage() {
         driver.get("https://www.ozon.ru");
     }
-
-
+    
     @AfterEach
     public void tearDown() {
         driver.quit();

@@ -55,7 +55,7 @@ public class WebDriverProvider implements Supplier<WebDriver> {
             return (T) firefoxOptions;
         }
     }
-    
+
     private RemoteWebDriver getRemoteChrome(WebDriverConfig webDriverConfig) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", BrowserName.CHROME);
